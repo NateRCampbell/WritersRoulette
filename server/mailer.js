@@ -1,35 +1,43 @@
+const { getDefaultNormalizer } = require("@testing-library/dom");
 const nodemailer = require("nodemailer");
 
-const { GOOGLE_USER, GOOGLE_PASSWORD, DOMAIN } = process.env;
+const { DOMAIN, GMAIL_ID, GMAIL_TOKEN, GMAIL_SECRET } = process.env;
 
-exports.sendConfirmationEmail = ({ toUser, hash }) => {
-   return new Promise((res, rej) => {
-      const transporter = nodemailer.createTransport({
-         service: "gmail",
-         auth: {
-            user: GOOGLE_USER,
-            password: GOOGLE_PASSWORD,
-         },
-      });
-      const message = {
-         from: GOOGLE_USER,
-         // to: toUser.email,
-         to: GOOGLE_USER,
-         subject: "Writers Roulette Activation",
-         html: `
-         <h3> Hello there, ${toUser.username}</h3>
-         <p> Thank you for joining in on this adventurous writing project! We're almost there, only one last thing to do. </p>
-         <h5.> Activate your account by clickling on this link:
-         <a target="_" href="${DOMAIN}/api/activate/user/${hash}"> Activate Account</a>
+exports.sendConfirmationEmail = (user) => {
+   // res.send(200);
+   // return;
+
+   const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+         type: "OAuth2",
+         user: "writiersroulette@gmail.com",
+         clientId: GMAIL_ID,
+         clientSecret: GMAIL_SECRET,
+         refreshToken: GMAIL_TOKEN,
+      },
+   });
+   const message = {
+      from: "writiersroulette@gmail.com",
+      to: user.email,
+      // to: GOOGLE_USER,
+      subject: "Writers Roulette Verification",
+      html: `
+         <h3> Hello there, Nate</h3>
+         <p> Thank you for joining in on this adventurous writing project! 
+         We're almost there, only one last thing to do. </p>
+         <h5.> Verify your account by clickling on this link:
+         <a target="_" href="${DOMAIN}/auth/verify_user/${user.email}/${user.username}"> Verify Account</a>
          </h5>
          <p> Have fun, be adventurous! </p>`,
-      };
-      transporter.sendMail(message, (err, info) => {
-         if (err) {
-            rej(err);
-         } else {
-            res(info);
-         }
-      });
+   };
+   return transporter.sendMail(message, (err, info) => {
+      if (err) {
+         throw new Error(err);
+      }
    });
 };
+
+//make a reset password mailer?

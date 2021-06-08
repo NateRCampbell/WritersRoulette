@@ -1,38 +1,348 @@
+:root {
+   --turq: rgb(86, 190, 180);
+   --gold-light: rgb(255, 220, 160);
+   --gold-dark: rgb(243, 202, 132);
+   --light: rgb(192, 230, 237);
+   --medium: rgb(68, 118, 149);
+   --dark: rgb(8, 14, 71);
+   --fg-color: rgb(255, 255, 255);
+   --bg-color: rgb(230, 230, 230);
+   --box-shade: rgb(165, 165, 165);
+}
+
+* {
+   padding: 0px;
+   margin: 0px;
+}
+
 .App {
-  text-align: center;
+   text-align: center;
+   background-color: var(--bg-color);
+   padding-top: 60px;
+   padding-bottom: 12px;
+   height: 100%;
+   width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+footer {
+   position: fixed;
+   /* height: 15px; */
+   /* width: 100vw; */
+   bottom: 0px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   /* background-color: var(--light); */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+   font-family: Helvetica, Arial, sans-serif;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: var(--dark);
 }
 
-.App-link {
-  color: #61dafb;
+.basic {
+   background-color: var(--fg-color);
+   border-radius: 10px;
+   box-shadow: 0px 1px 10px var(--box-shade);
+   padding: 20px;
+   margin: 10px;
+   width: 80vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-area {
+   width: 90%;
+   resize: vertical;
+}
+
+.button {
+   padding: 10px;
+   width: 110px;
+   background-color: var(--gold-light);
+   border-radius: 5px;
+   color: var(--medium);
+   border: var(--turq);
+   box-shadow: 0px 0px 5px var(--box-shade);
+   margin: 10px;
+}
+
+.button:hover {
+   background-color: var(--gold-dark);
+}
+
+.sm-button {
+   padding: 10px;
+   background-color: var(--gold-light);
+   border-radius: 5px;
+   color: var(--medium);
+   border: var(--turq);
+   box-shadow: 0px 0px 3px var(--box-shade);
+   margin: 10px;
+}
+
+.sm-button:hover {
+   background-color: var(--gold-dark);
+}
+.btn {
+   text-decoration: none;
+   padding: 3px;
+   border-radius: 3px;
+   background-color: var(--turq);
+   box-shadow: 0px 0px 3px var(--light);
+   margin: 3px;
+   color: white;
+}
+
+.btn:hover {
+   background-color: var(--light);
+}
+
+.btn2 {
+   text-decoration: none;
+   padding: 10px;
+   border-radius: 5px;
+   background-color: var(--turq);
+   box-shadow: 0px 0px 5px var(--medium);
+   margin: 10px;
+   color: white;
+}
+.btn2:hover {
+   background-color: var(--light);
+}
+.center {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+}
+
+.margin {
+   margin: 15px;
+}
+
+/*Header */
+
+.nav-title {
+   margin-left: 20px;
+   color: var(--medium);
+   font-size: xx-large;
+   font-family: "Source Code Pro", monospace;
+}
+
+.navbar {
+   height: 55px;
+   width: 100vw;
+   position: fixed;
+   top: 0px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   align-content: center;
+   background-color: var(--fg-color);
+   border: rgb(209, 209, 209) solid 1px;
+   box-shadow: 0px 0px 7px var(--box-shade);
+   z-index: 1;
+}
+
+.nav-links {
+   display: flex;
+   margin-right: 70px;
+}
+
+.link {
+   font-size: large;
+   margin: 10px;
+   padding: 5px;
+   border-radius: 5px;
+   width: auto;
+   text-decoration: none;
+   color: rgb(4, 8, 46);
+}
+
+.user-links {
+   margin-right: 30px;
+}
+
+.link:hover {
+   background-color: rgb(192, 230, 237);
+   box-shadow: 0px 0px 5px rgb(192, 230, 237);
+}
+.login-link {
+   text-decoration: none;
+   color: rgb(68, 118, 149);
+   background-color: rgb(255, 220, 160);
+   height: 20px;
+   margin: 3px;
+   padding: 7px;
+   padding-left: 12px;
+   padding-right: 12px;
+   border-radius: 5px;
+   box-shadow: 0px 0px 3px var(--box-shade);
+}
+
+.new-button {
+   text-decoration: none;
+   background-color: rgb(255, 220, 160);
+   color: rgb(68, 118, 149);
+   width: 50px;
+   height: 20px;
+   margin: 2px;
+   padding: 7px;
+   padding-left: 12px;
+   padding-right: 12px;
+   border-radius: 5px;
+   box-shadow: 0px 0px 3px var(--box-shade);
+}
+
+.login-link:hover {
+   background-color: rgb(243, 202, 132);
+}
+.new-button:hover {
+   background-color: rgb(243, 202, 132);
+}
+
+.menu-button {
+   display: none;
+   background-color: rgb(255, 220, 160);
+   color: rgb(53, 157, 147);
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+   align-items: center;
+   align-content: center;
+   margin: 5px;
+   margin-right: 20px;
+   padding: 3px;
+   padding-left: 10px;
+   height: 25px;
+   border-radius: 5px;
+   box-shadow: 0px 0px 3px lightgray;
+}
+.menu-button:hover {
+   background-color: rgb(243, 202, 132);
+}
+.burger {
+   margin: 5px;
+}
+
+.patty {
+   height: 2px;
+   width: 15px;
+   background-color: rgb(68, 118, 149);
+   margin: 3px;
+}
+
+.menu {
+   color: rgb(68, 118, 149);
+}
+
+/* Authentication */
+
+.register {
+   padding: 10px;
+   width: 110px;
+   background-color: rgb(255, 220, 160);
+   border-radius: 5px;
+   color: rgb(68, 118, 149);
+   border: rgb(53, 157, 147);
+   box-shadow: 0px 0px 5px var(--box-shade);
+}
+
+.register:hover {
+   background-color: rgb(243, 202, 132);
+}
+
+.auth-box {
+   width: 600px;
+   background-color: rgb(255, 255, 255);
+   color: rgb(53, 157, 147);
+   padding: 10px;
+   border-radius: 10px;
+   box-shadow: 0px 0px 10px var(--box-shade);
+   margin: 15px;
+}
+
+.auth-inner {
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+}
+
+.auth-inputs {
+   margin: 5px;
+}
+
+.auth-button {
+   margin: 5px;
+   padding: 7px;
+   border-radius: 5px;
+   border: rgb(158, 158, 158) solid 1px;
+   box-shadow: 0px 1px 5px lightgray;
+}
+
+.auth-button:hover {
+   background-color: lightgray;
+}
+
+.color-light-blue {
+   color: rgb(192, 230, 237);
+}
+
+.title {
+   color: var(--dark);
+   margin: 0.5em;
+   font-family: "Source Code Pro", monospace;
+}
+.turq-title {
+   color: rgb(53, 157, 147);
+   padding-bottom: 5px;
+   margin: 5px;
+}
+
+.sub {
+   margin-bottom: 15px;
+}
+
+.home-link {
+   text-decoration: none;
+   color: var(--medium);
+}
+
+@media (max-width: 1000px) {
+   .nav-title {
+      font-size: x-large;
+   }
+
+   .nav-links {
+      margin-right: 20px;
+   }
+}
+@media (max-width: 750px) {
+   .nav-links {
+      display: none;
+   }
+   .navbar {
+      height: 50px;
+   }
+
+   .user-links {
+      display: none;
+   }
+   .menu-button {
+      display: flex;
+   }
+   .auth-box {
+      width: 80vw;
+   }
 }

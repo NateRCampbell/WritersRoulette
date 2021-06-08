@@ -1,3 +1,2 @@
 SELECT * FROM users
-WHERE username = $1
-WHERE email = $2
+WHERE email = $1 OR username = $2;

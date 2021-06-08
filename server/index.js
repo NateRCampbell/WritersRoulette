@@ -2,9 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
-const { sendConfirmationEmail } = require("./mailer");
 
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
+
+const authCtrl = require("./controllers/authController");
+const promptCtrl = require("./controllers/promptController");
 
 const app = express();
 
@@ -30,3 +32,20 @@ massive({
       );
    })
    .catch((err) => console.log(err));
+
+//auth endpoints
+app.post("/auth/register", authCtrl.register);
+app.get("/auth/verify_user/:email/:username", authCtrl.verify);
+app.post("/auth/login", authCtrl.login);
+app.get("/auth/logout", authCtrl.logout);
+app.get("/auth/get_user", authCtrl.getUser);
+
+//prompt endpoints
+//readRoulette, submitPage, deleteRoulette are not yet working
+
+app.get("/api/all_prompts", promptCtrl.getPrompt);
+app.post("/api/create_roulette", promptCtrl.createRoulette);
+app.get(`/api/user_roulette/:author_id`, promptCtrl.userRoulette);
+app.get("/api/read_roulette/:roulette_id", promptCtrl.readRoulette);
+app.post("/api/submit_page/:roulette_id", promptCtrl.submitPage);
+app.delete("/api/delete_roulette/:roulette_id", promptCtrl.deleteRoulette);
