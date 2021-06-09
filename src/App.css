@@ -8,6 +8,15 @@
    --fg-color: rgb(255, 255, 255);
    --bg-color: rgb(230, 230, 230);
    --box-shade: rgb(165, 165, 165);
+   --line: radial-gradient(
+      circle,
+      rgb(161, 217, 228) 0%,
+      rgba(192, 230, 237, 1) 30%,
+      rgba(192, 230, 237, 0) 100%
+   );
+   --warning: rgb(209, 3, 3);
+   --mono-text: "Source Code Pro", monospace;
+   --helv-text: Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -88,16 +97,39 @@ footer {
 }
 .btn {
    text-decoration: none;
-   padding: 3px;
-   border-radius: 3px;
+   padding: 7px;
+   border-radius: 5px;
    background-color: var(--turq);
    box-shadow: 0px 0px 3px var(--light);
    margin: 3px;
    color: white;
+   font-family: var(--mono-text);
+   font-size: small;
+}
+.f {
+   padding-right: 12px;
 }
 
 .btn:hover {
    background-color: var(--light);
+}
+.delete {
+   background-color: var(--warning);
+   border: 0;
+}
+.delete:hover {
+   background-color: var(--dark);
+}
+.edit {
+   border: 0px;
+}
+.btn-div {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   align-items: center;
+   align-content: stretch;
 }
 
 .btn2 {
@@ -108,10 +140,27 @@ footer {
    box-shadow: 0px 0px 5px var(--medium);
    margin: 10px;
    color: white;
+   border: 0px;
 }
 .btn2:hover {
-   background-color: var(--light);
+   background-color: var(--medium);
 }
+
+.btn3 {
+   text-decoration: none;
+   padding: 11px;
+   border-radius: 5px;
+   background-color: var(--medium);
+   box-shadow: 0px 0px 5px var(--medium);
+   margin: 5px;
+   margin-bottom: px;
+   color: white;
+   border: 0px;
+}
+.btn3:hover {
+   background-color: var(--dark);
+}
+
 .center {
    display: flex;
    flex-direction: column;
@@ -123,6 +172,90 @@ footer {
 
 .margin {
    margin: 15px;
+}
+
+.page {
+   margin: 5px;
+   padding: 0px 5% 0px 5%;
+   text-indent: 7%;
+   line-height: 1.5;
+   text-align: justify;
+   text-justify: inter-word;
+   max-width: 90ch;
+}
+
+.line {
+   margin: 10px;
+   height: 2px;
+   width: 100%;
+   background: var(--line);
+   z-index: 1;
+}
+.sm-text {
+   font-family: "Source Code Pro", monospace;
+   color: var(--medium);
+   font-size: small;
+}
+.page-num {
+   display: flex;
+   align-items: baseline;
+   margin: 5px 5px 5px 5%;
+   font-family: "Source Code Pro", monospace;
+}
+
+.ptext {
+   font-family: "Source Code Pro", monospace;
+   display: flex;
+   align-items: baseline;
+   margin-left: 10%;
+   margin-top: 5px;
+   color: var(--medium);
+   font-size: larger;
+}
+.pbody {
+   display: flex;
+   align-items: baseline;
+   line-height: 1.25;
+   text-align: justify;
+   text-justify: inter-word;
+   margin: -21px 10% 10px 10%;
+   text-indent: 90px;
+   max-width: 70ch;
+}
+
+.tag-parent {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-between;
+   align-items: center;
+   align-content: stretch;
+   margin: 5px 10% 0px 10%;
+}
+
+.warning {
+   color: var(--warning);
+   font-family: var(--mono-text);
+}
+.clean {
+   color: var(--gold-dark);
+   font-family: var(--mono-text);
+}
+
+.prompt {
+   white-space: pre-line;
+   text-align: left;
+   margin: 5px;
+   /* padding: 20px 5% 20px 5%; */
+   text-indent: 7%;
+}
+
+.page-body {
+   height: 350px;
+   overflow: auto;
+   white-space: pre-line;
+   text-align: left;
+   margin: 0% 5% 0% 5%;
 }
 
 /*Header */
@@ -219,12 +352,21 @@ footer {
    align-content: center;
    margin: 5px;
    margin-right: 20px;
-   padding: 3px;
-   padding-left: 10px;
-   height: 25px;
+   padding: 5px;
+   padding-left: 15px;
+   height: 30px;
    border-radius: 5px;
    box-shadow: 0px 0px 3px lightgray;
+   border: 0px;
 }
+
+.btn-link {
+   display: none;
+}
+.dropdown {
+   display: none;
+}
+
 .menu-button:hover {
    background-color: rgb(243, 202, 132);
 }
@@ -299,6 +441,14 @@ footer {
    color: rgb(192, 230, 237);
 }
 
+.user-title {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   align-items: center;
+   align-content: stretch;
+}
 .title {
    color: var(--dark);
    margin: 0.5em;
@@ -321,14 +471,14 @@ footer {
 
 @media (max-width: 1000px) {
    .nav-title {
-      font-size: x-large;
+      font-size: large;
    }
 
    .nav-links {
       margin-right: 20px;
    }
 }
-@media (max-width: 750px) {
+@media (max-width: 785px) {
    .nav-links {
       display: none;
    }
@@ -341,8 +491,55 @@ footer {
    }
    .menu-button {
       display: flex;
+      position: relative;
+   }
+   .menu {
+      pointer-events: none;
    }
    .auth-box {
       width: 80vw;
+   }
+   .btn-link {
+      display: flex;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--dark);
+      font-family: "Source Code Pro", monospace;
+      background: var(--gold-light);
+      width: 100vw;
+      text-align: center;
+      margin: auto;
+   }
+   .btn-link:hover {
+      background-color: var(--gold-dark);
+   }
+   .drop {
+      position: absolute;
+      left: 0px;
+      top: 50px;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: all 0.5s ease;
+   }
+   .dropdown button:focus + .drop {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0px);
+   }
+   .dropdown {
+      display: flex;
+      flex-direction: column;
+      /* position: relative; */
+   }
+   .type-three {
+      width: 100%;
+      word-wrap: break-word;
    }
 }

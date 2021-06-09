@@ -210,6 +210,19 @@
       --typewriterSpeedThree: 0s;
       --typewriterCharactersThree: 0;
    }
+
+   .type {
+      font-size: 1.5rem;
+      width: 100%;
+   }
+   .type-two {
+      font-size: 1.5rem;
+      width: 100%;
+   }
+   .type-three {
+      font-size: 1.5rem;
+      width: 100%;
+   }
 }
 
 @media (prefers-reduce-motion: reduce) {

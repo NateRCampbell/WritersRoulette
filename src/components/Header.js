@@ -39,12 +39,28 @@ const Header = () => {
                </Link>
             </div>
          </div>
-         <div className="menu-button">
-            <p className="menu">MENU</p>
-            <div className="burger">
-               <div className="patty"></div>
-               <div className="patty"></div>
-               <div className="patty"></div>
+         <div className="dropdown">
+            <button className="menu-button">
+               <p className="menu">MENU</p>
+               <div className="burger">
+                  <div className="patty"></div>
+                  <div className="patty"></div>
+                  <div className="patty"></div>
+               </div>
+            </button>
+            <div className="drop">
+               <Link to="/" className="btn-link">
+                  Home
+               </Link>
+               <Link to="/info" className="btn-link">
+                  About
+               </Link>
+               <Link to="/prompts" className="btn-link">
+                  Browse
+               </Link>
+               <Link className="btn-link" to="/auth">
+                  Login/Register
+               </Link>
             </div>
          </div>
       </nav>

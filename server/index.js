@@ -41,11 +41,12 @@ app.get("/auth/logout", authCtrl.logout);
 app.get("/auth/get_user", authCtrl.getUser);
 
 //prompt endpoints
-//readRoulette, submitPage, deleteRoulette are not yet working
 
 app.get("/api/all_prompts", promptCtrl.getPrompt);
 app.post("/api/create_roulette", promptCtrl.createRoulette);
 app.get(`/api/user_roulette/:author_id`, promptCtrl.userRoulette);
 app.get("/api/read_roulette/:roulette_id", promptCtrl.readRoulette);
-app.post("/api/submit_page/:roulette_id", promptCtrl.submitPage);
+app.get("/api/new_submit/:roulette_id", promptCtrl.newSubmit);
+app.post("/api/submit_page", promptCtrl.submitPage);
+app.put("/api/edit_prompt/:roulette_id", promptCtrl.editPrompt);
 app.delete("/api/delete_roulette/:roulette_id", promptCtrl.deleteRoulette);

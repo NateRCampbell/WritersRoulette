@@ -16,7 +16,7 @@ export default (
       <Route path="/user_dash" component={UserDash} />
       <Route path="/prompts" component={Prompts} />
       <Route path="/create_new" component={CreatePost} />
-      <Route path="/new_submission" component={Submission} />
-      <Route path="/read_roulette" component={ReadRoulette} />
+      <Route path="/new_submit/:roulette_id" component={Submission} />
+      <Route path="/read_roulette/:roulette_id" component={ReadRoulette} />
    </Switch>
 );

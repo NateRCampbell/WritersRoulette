@@ -25,18 +25,35 @@ const Prompts = () => {
                {prompts.map((roulette) => {
                   return (
                      <div className="basic prompt">
-                        <p className="ptext">prompt:</p>
+                        <p className="ptext">Prompt:</p>
                         <div className="pbody margin" key={roulette.prompt_id}>
                            {roulette.prompt_body}
                         </div>
-                        <Link to="/read_roulette/:roulette_id" className="btn">
-                           read
-                           {/*how do I send the roulette_id into the url so that it will select all the right info? */}
-                        </Link>
-                        <Link to="/new_submission/:roulette_id" className="btn">
-                           write{" "}
-                           {/* same question as above, wont let me do tempLit */}
-                        </Link>
+                        <div className="tag-parent" key={roulette.prompt_id}>
+                           <div>
+                              <div>
+                                 {roulette.mature === true ? (
+                                    <p className="warning">Mature</p>
+                                 ) : (
+                                    <p className="clean">Clean</p>
+                                 )}
+                              </div>
+                           </div>
+                           <div>
+                              <Link
+                                 to={`/read_roulette/${roulette.roulette_id}`}
+                                 className="btn"
+                              >
+                                 read
+                              </Link>
+                              <Link
+                                 to={`/new_submit/${roulette.roulette_id}`}
+                                 className="btn"
+                              >
+                                 write
+                              </Link>
+                           </div>
+                        </div>
                      </div>
                   );
                })}

@@ -40,7 +40,7 @@ const Info = () => {
                      fun.
                   </li>
                </ul>
-               *There may be addional rules put into place, but those are the
+               *There may be additional rules put into place, but those are the
                basics*
             </div>
          </div>

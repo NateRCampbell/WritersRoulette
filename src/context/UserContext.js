@@ -28,7 +28,10 @@ export const UserProvider = (props) => {
             setUser(res.data);
             history.push("/user_dash");
          })
-         .catch((err) => console.log(err));
+         .catch((err) => {
+            alert(err);
+            console.log(err);
+         });
    };
 
    const handleRegister = (username, email, password) => {

@@ -52,11 +52,53 @@ module.exports = {
             console.log(err);
             res.status(500).send("Couldn't get Roulette");
          });
-      // will this work for multiple pages?
+   },
+   newSubmit: (req, res) => {
+      const db = req.app.get("db");
+      const { roulette_id } = req.params;
+      db.roulette
+         .get_last_page(roulette_id)
+         .then((r) => {
+            res.status(200).send(r);
+         })
+         .catch((err) => {
+            console.log(err);
+            res.status(500).send("Couldn't get Roulette");
+         });
    },
    submitPage: (req, res) => {
       const db = req.app.get("db");
-      const { roulette_id } = req.params;
+      const { author_id } = req.session.user;
+      const { roulette_id, submit_body, submit_page } = req.body;
+      db.roulette
+         .submit_new_page(roulette_id, author_id, submit_body, submit_page)
+         .then(() => res.sendStatus(200))
+         .catch((err) => {
+            console.log(err);
+            res.status(409).send("hmmm... there was an error");
+         });
+      res.sendStatus(200);
    },
-   deleteRoulette: (req, res) => {},
+   editPrompt: (req, res) => {
+      const db = req.app.get("db");
+      const { roulette_id } = req.params;
+      const { prompt_body } = req.body;
+      db.roulette
+         .edit_prompt(roulette_id, prompt_body)
+         .then((newBody) => res.status(200).send(newBody))
+         .catch((err) => console.log(err));
+   },
+   deleteRoulette: (req, res) => {
+      const db = req.app.get("db");
+      const { roulette_id } = req.params;
+      console.log(req.session.user);
+      const { author_id } = req.session.user;
+      db.roulette
+         .delete_roulette(roulette_id, author_id)
+         .then((rouletteArr) => res.status(200).send(rouletteArr))
+         .catch((err) => {
+            console.log(err);
+            res.status(500).send("could not delete");
+         });
+   },
 };

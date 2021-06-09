@@ -65,6 +65,7 @@ const CreatePost = () => {
                      className="text-area"
                      rows="3"
                      cols="75"
+                     required
                      placeholder="(max 500 characters)"
                      maxLength="500"
                      value={promptBody}
@@ -105,7 +106,7 @@ const CreatePost = () => {
                   ) : submitBody.length > 2900 ? (
                      <div style={{ color: "orange" }}>
                         {submitBody.length}/3000
-                        <p style={{ color: "red" }}>
+                        <p className="warning">
                            Caution: Aproaching Character Limit
                         </p>
                      </div>
