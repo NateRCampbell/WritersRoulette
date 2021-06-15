@@ -29,14 +29,15 @@ const Header = () => {
                      Login/Register
                   </Link>
                ) : (
-                  <Link className="login-link" to="/user_dash">
-                     {user.username}'s Dashbord
-                  </Link>
+                  <div>
+                     <Link className="login-link" to="/user_dash">
+                        {user.username}'s Dashboard
+                     </Link>
+                     <Link to="/create_new" className="new-button">
+                        +
+                     </Link>
+                  </div>
                )}
-
-               <Link to="/create_new" className="new-button">
-                  +
-               </Link>
             </div>
          </div>
          <div className="dropdown">
@@ -58,9 +59,15 @@ const Header = () => {
                <Link to="/prompts" className="btn-link">
                   Browse
                </Link>
-               <Link className="btn-link" to="/auth">
-                  Login/Register
-               </Link>
+               {user === null ? (
+                  <Link className="btn-link" to="/auth">
+                     Login/Register
+                  </Link>
+               ) : (
+                  <Link className="btn-link" to="/user_dash">
+                     {user.username}'s Dashbord
+                  </Link>
+               )}
             </div>
          </div>
       </nav>

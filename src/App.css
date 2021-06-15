@@ -2,11 +2,12 @@
    --turq: rgb(86, 190, 180);
    --gold-light: rgb(255, 220, 160);
    --gold-dark: rgb(243, 202, 132);
-   --light: rgb(192, 230, 237);
+   --light: rgb(206, 231, 235);
    --medium: rgb(68, 118, 149);
+   --medium1: rgba(100, 147, 179, 0.5);
    --dark: rgb(8, 14, 71);
    --fg-color: rgb(255, 255, 255);
-   --bg-color: rgb(230, 230, 230);
+   --bg-color: var(--light);
    --box-shade: rgb(165, 165, 165);
    --line: radial-gradient(
       circle,
@@ -14,7 +15,7 @@
       rgba(192, 230, 237, 1) 30%,
       rgba(192, 230, 237, 0) 100%
    );
-   --warning: rgb(209, 3, 3);
+   --warning: rgb(224, 9, 9);
    --mono-text: "Source Code Pro", monospace;
    --helv-text: Helvetica, Arial, sans-serif;
 }
@@ -27,9 +28,11 @@
 .App {
    text-align: center;
    background-color: var(--bg-color);
+   padding: 0px;
    padding-top: 60px;
    padding-bottom: 12px;
-   height: 100%;
+   margin: 0px;
+   min-height: 92vh;
    width: 100vw;
 }
 
@@ -65,6 +68,7 @@ footer {
 .text-area {
    width: 90%;
    resize: vertical;
+   /* max-width: 120ch; */
 }
 
 .button {
@@ -137,10 +141,11 @@ footer {
    padding: 10px;
    border-radius: 5px;
    background-color: var(--turq);
-   box-shadow: 0px 0px 5px var(--medium);
+   box-shadow: 0px 0px 5px var(--light);
    margin: 10px;
    color: white;
    border: 0px;
+   font-size: medium;
 }
 .btn2:hover {
    background-color: var(--medium);
@@ -221,6 +226,11 @@ footer {
    margin: -21px 10% 10px 10%;
    text-indent: 90px;
    max-width: 70ch;
+   min-height: 25px;
+}
+.spacing {
+   width: 100%;
+   max-width: 70ch;
 }
 
 .tag-parent {
@@ -231,6 +241,7 @@ footer {
    align-items: center;
    align-content: stretch;
    margin: 5px 10% 0px 10%;
+   max-width: 70ch;
 }
 
 .warning {
@@ -238,7 +249,7 @@ footer {
    font-family: var(--mono-text);
 }
 .clean {
-   color: var(--gold-dark);
+   color: var(--turq);
    font-family: var(--mono-text);
 }
 
@@ -256,6 +267,23 @@ footer {
    white-space: pre-line;
    text-align: left;
    margin: 0% 5% 0% 5%;
+   max-width: 90ch;
+}
+
+.scroll {
+   background: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+      linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+      radial-gradient(farthest-side at 50% 0, var(--medium1), rgba(0, 0, 0, 0)),
+      radial-gradient(
+            farthest-side at 50% 100%,
+            var(--medium1),
+            rgba(0, 0, 0, 0)
+         )
+         0 100%;
+   background-color: #ffffff;
+   background-repeat: no-repeat;
+   background-attachment: local, local, scroll, scroll;
+   background-size: 100% 27px, 100% 27px, 100% 9px, 100% 9px;
 }
 
 /*Header */
@@ -462,6 +490,7 @@ footer {
 
 .sub {
    margin-bottom: 15px;
+   font-family: var(--mono-text);
 }
 
 .home-link {
@@ -518,25 +547,28 @@ footer {
       left: 0px;
       top: 50px;
       width: 100vw;
+      /* display: none; */
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: flex-start;
       align-items: center;
       opacity: 0;
-      pointer-events: none;
-      transform: translateY(-20px);
+      /* pointer-events: none; */
+      transform: translateY(-10px);
       transition: all 0.5s ease;
    }
+
    .dropdown button:focus + .drop {
+      display: flex;
       opacity: 1;
-      pointer-events: all;
-      transform: translateY(0px);
+      /* pointer-events: all; */
+      transform: translateY(0);
+      /* transition: all 0.5s ease; */
    }
    .dropdown {
       display: flex;
       flex-direction: column;
-      /* position: relative; */
    }
    .type-three {
       width: 100%;

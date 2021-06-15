@@ -62,7 +62,7 @@ const CreatePost = () => {
                <div>
                   <textarea
                      type="text"
-                     className="text-area"
+                     className="text-area scroll"
                      rows="3"
                      cols="75"
                      required
@@ -86,11 +86,11 @@ const CreatePost = () => {
             <h3 style={page}>First Page</h3>
             <textarea
                style={spaceing}
-               className="text-area"
+               className="text-area scroll"
                type="text"
                rows="30"
                cols="100"
-               placeholder="(write a minimum of 2000 characters, and a max of 3000 [approx 350-500 word])"
+               placeholder="(write a minimum of 1500 characters, and a max of 3000 [approx 350-500 word])"
                minLength="1500"
                maxLength="3000"
                value={submitBody}

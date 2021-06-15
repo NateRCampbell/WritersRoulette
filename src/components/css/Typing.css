@@ -1,14 +1,21 @@
 :root {
    --fgcolor: var(--fg-color);
-   --titleColor: black;
+   --bgcolor: var(--bg-color);
+   --titleColor: var(--dark);
    --blinkColor: black;
    --subtitleColor: rgb(4, 8, 46/ 0.7);
+   /* type speed */
    --typewriterSpeed: 2s;
-   --typewriterCharacters: 26;
    --typewriterSpeedTwo: 2s;
-   --typewriterCharactersTwo: 16;
    --typewriterSpeedThree: 3s;
+   --typewriterSpeedFour: 1s;
+   /* characters */
+   --typewriterCharacters: 26;
+   --typewriterCharactersTwo: 16;
    --typewriterCharactersThree: 29;
+   --typewriterCharactersFour: 17;
+   --typewriterCharactersFive: 14;
+   --typewriterCharactersSix: 20;
 }
 
 .type {
@@ -111,6 +118,108 @@
       blink 750ms steps(var(--typewriterCharactersThree)) infinite;
 }
 
+/* type4 */
+
+.type-four {
+   font-size: clamp(1rem, 2vw + 1rem, 4rem);
+   position: relative;
+   font-family: "Source Code Pro", monospace;
+   width: max-content;
+   margin-left: 10px;
+}
+
+.type-four::before,
+.type-four::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+
+.type-four::before {
+   background: var(--bgcolor);
+   animation: typewriter var(--typewriterSpeedFour)
+      steps(var(--typewriterCharactersFour)) 0.5s forwards;
+}
+
+.type-four::after {
+   width: 0.125em;
+   background: var(--blinkColor);
+   animation: typewriter var(--typewriterSpeedFour)
+         steps(var(--typewriterCharactersFour)) 0.5s forwards,
+      blink 750ms steps(var(--typewriterCharactersFour)) infinite;
+}
+
+/* type5 */
+
+.type-five {
+   font-size: clamp(1rem, 2vw + 1rem, 4rem);
+   position: relative;
+   font-family: "Source Code Pro", monospace;
+   width: max-content;
+   margin-left: 10px;
+}
+
+.type-five::before,
+.type-five::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+
+.type-five::before {
+   background: var(--bgcolor);
+   animation: typewriter var(--typewriterSpeedFour)
+      steps(var(--typewriterCharactersFive)) 0.5s forwards;
+}
+
+.type-five::after {
+   width: 0.125em;
+   background: var(--blinkColor);
+   animation: typewriter var(--typewriterSpeedFour)
+         steps(var(--typewriterCharactersFive)) 0.5s forwards,
+      blink 750ms steps(var(--typewriterCharactersFive)) infinite;
+}
+
+/* type6 */
+
+.type-six {
+   font-size: clamp(1rem, 2vw + 1rem, 4rem);
+   position: relative;
+   font-family: "Source Code Pro", monospace;
+   width: max-content;
+   margin-left: 10px;
+}
+
+.type-six::before,
+.type-six::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+
+.type-six::before {
+   background: var(--bgcolor);
+   animation: typewriter var(--typewriterSpeedFour)
+      steps(var(--typewriterCharactersSix)) 0.5s forwards;
+}
+
+.type-six::after {
+   width: 0.125em;
+   background: var(--blinkColor);
+   animation: typewriter var(--typewriterSpeedFour)
+         steps(var(--typewriterCharactersSix)) 0.5s forwards,
+      blink 750ms steps(var(--typewriterCharactersSix)) infinite;
+}
+
 /* subtitle */
 
 .subtitle {
@@ -121,6 +230,7 @@
    opacity: 0;
    transform: translateY(3rem);
    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 1s) forwards;
+   max-width: 80ch;
 }
 .subtitle-two {
    margin: 20px;
@@ -129,7 +239,7 @@
    font-weight: 400;
    opacity: 0;
    transform: translateY(3rem);
-   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 3s) forwards;
+   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 1.5s) forwards;
 }
 
 .subtitle-three {
@@ -157,7 +267,7 @@
    font-weight: 400;
    opacity: 0;
    transform: translateY(3rem);
-   animation: fadeInUp 2s ease calc(var(--typewriterSpeedThree) + 4s) forwards;
+   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
 }
 .subtitle-six {
    margin: 20px;
@@ -166,7 +276,7 @@
    font-weight: 400;
    opacity: 0;
    transform: translateY(3rem);
-   animation: fadeInUp 2s ease calc(var(--typewriterSpeedThree) + 4.5s) forwards;
+   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2.5s) forwards;
 }
 .subtitle-seven {
    margin: 20px;
@@ -175,7 +285,16 @@
    font-weight: 400;
    opacity: 0;
    transform: translateY(3rem);
-   animation: fadeInUp 2s ease calc(var(--typewriterSpeedThree) + 5s) forwards;
+   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 3s) forwards;
+}
+.subtitle-eight {
+   margin: 20px;
+   color: var(--dark);
+   font-size: 1rem;
+   font-weight: 400;
+   opacity: 0;
+   transform: translateY(3rem);
+   animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 3.5s) forwards;
 }
 
 @keyframes typewriter {
@@ -200,15 +319,20 @@
 @media (max-width: 750px) {
    :root {
       --fgcolor: rgba(255, 255, 255, 0);
-      --titleColor: black;
+      --bgcolor: rgba(255, 255, 255, 0);
+      --titleColor: var(--dark);
       --blinkColor: rgba(0, 0, 0, 0);
       --subtitleColor: rgb(4, 8, 46/ 0.7);
       --typewriterSpeed: 0s;
-      --typewriterCharacters: 0;
       --typewriterSpeedTwo: 0s;
-      --typewriterCharactersTwo: 0;
       --typewriterSpeedThree: 0s;
+      --typewriterSpeedFour: 0s;
+      --typewriterCharacters: 0;
+      --typewriterCharactersTwo: 0;
       --typewriterCharactersThree: 0;
+      --typewriterCharactersFour: 0;
+      --typewriterCharactersFive: 0;
+      --typewriterCharactersSix: 0;
    }
 
    .type {
@@ -234,14 +358,19 @@
    }
    :root {
       --fgcolor: rgba(255, 255, 255, 0);
-      --titleColor: black;
+      --bgcolor: rgba(255, 255, 255, 0);
+      --titleColor: var(--dark);
       --blinkColor: rgba(0, 0, 0, 0);
       --subtitleColor: rgb(4, 8, 46/ 0.7);
       --typewriterSpeed: 0s;
-      --typewriterCharacters: 0;
       --typewriterSpeedTwo: 0s;
-      --typewriterCharactersTwo: 0;
       --typewriterSpeedThree: 0s;
+      --typewriterSpeedFour: 0s;
+      --typewriterCharacters: 0;
+      --typewriterCharactersTwo: 0;
       --typewriterCharactersThree: 0;
+      --typewriterCharactersFour: 0;
+      --typewriterCharactersFive: 0;
+      --typewriterCharactersSix: 0;
    }
 }

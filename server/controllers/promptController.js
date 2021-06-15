@@ -83,9 +83,10 @@ module.exports = {
       const db = req.app.get("db");
       const { roulette_id } = req.params;
       const { prompt_body } = req.body;
+      const { author_id } = req.session.user;
       db.roulette
-         .edit_prompt(roulette_id, prompt_body)
-         .then((newBody) => res.status(200).send(newBody))
+         .edit_prompt(roulette_id, prompt_body, author_id)
+         .then((newArr) => res.status(200).send(newArr))
          .catch((err) => console.log(err));
    },
    deleteRoulette: (req, res) => {

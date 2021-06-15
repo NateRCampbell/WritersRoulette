@@ -42,23 +42,27 @@ const Submission = () => {
    };
 
    return (
-      <div>
-         <h1 className="title">New Page Submission</h1>
+      <div className="center">
+         <h1 className="title type-six">New Page Submission.</h1>
          <div className="basic">
             <div>
-               <div className="ptext">Prompt:</div>
-               <p className="pbody">{prompt}</p>
-               <div className="line" />
-               <h3 className="title">Previous Page</h3>
-               <p className="page-num sm-text">page {preNum}</p>
-               <div className="page-body">{prePage}</div>
+               <div className="center">
+                  <div>
+                     <div className="ptext">Prompt:</div>
+                     <p className="pbody">{prompt}</p>
+                  </div>
+                  <div className="line" />
+                  <h3 className="title">Previous Page</h3>
+                  <p className="page-num sm-text">page {preNum}</p>
+                  <div className="page-body scroll">{prePage}</div>
+               </div>
             </div>
             <div>
                <div>
                   <h3 className="title">Your Page</h3>
                   <p className="page-num sm-text">page {submit_page}</p>
                   <textarea
-                     className="text-area"
+                     className="text-area scroll"
                      type="text"
                      rows="30"
                      cols="100"
@@ -66,6 +70,7 @@ const Submission = () => {
                      minLength="1500"
                      maxLength="3000"
                      value={submitBody}
+                     required
                      onChange={(e) => setSubmitBody(e.target.value)}
                   />
                   <div>

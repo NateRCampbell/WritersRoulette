@@ -20,8 +20,8 @@ const ReadRoulette = () => {
 
    return (
       <div>
-         <div>
-            <h1 className="title margin">Read Roulette</h1>
+         <div className="center">
+            <h1 className="title margin type-five">Read Roulette.</h1>
             <div className="basic center">
                <div className="margin prompt">
                   <div className="ptext">Prompt:</div>

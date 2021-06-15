@@ -18,7 +18,16 @@ const Auth = (props) => {
    const [showReg, setShowReg] = useState(true);
 
    return (
-      <div>
+      <div className="center">
+         <h1
+            className="type-four"
+            style={{
+               margin: "10px",
+               fontFamily: '"Source Code Pro", monospace',
+            }}
+         >
+            Login & Register.
+         </h1>
          <div className="auth-box">
             <div>
                <h3 className="turq-title">Login</h3>
