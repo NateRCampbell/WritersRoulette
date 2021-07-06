@@ -2,7 +2,7 @@
    --fgcolor: var(--fg-color);
    --bgcolor: var(--bg-color);
    --titleColor: var(--dark);
-   --blinkColor: black;
+   --blinkColor: var(--text-color);
    --subtitleColor: rgb(4, 8, 46/ 0.7);
    /* type speed */
    --typewriterSpeed: 2s;
@@ -37,14 +37,14 @@
 }
 
 .type::before {
-   background: var(--fgcolor);
+   background: var(--fg-color);
    animation: typewriter var(--typewriterSpeed)
       steps(var(--typewriterCharacters)) 0.5s forwards;
 }
 
 .type::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeed)
          steps(var(--typewriterCharacters)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharacters)) infinite;
@@ -71,14 +71,14 @@
 }
 
 .type-two::before {
-   background: var(--fgcolor);
+   background: var(--fg-color);
    animation: typewriter var(--typewriterSpeedTwo)
       steps(var(--typewriterCharactersTwo)) 0.5s forwards;
 }
 
 .type-two::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeedTwo)
          steps(var(--typewriterCharactersTwo)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharactersTwo)) infinite;
@@ -105,14 +105,14 @@
 }
 
 .type-three::before {
-   background: var(--fgcolor);
+   background: var(--fg-color);
    animation: typewriter var(--typewriterSpeedThree)
       steps(var(--typewriterCharactersThree)) 0.5s forwards;
 }
 
 .type-three::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeedThree)
          steps(var(--typewriterCharactersThree)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharactersThree)) infinite;
@@ -139,14 +139,14 @@
 }
 
 .type-four::before {
-   background: var(--bgcolor);
+   background: var(--bg-color);
    animation: typewriter var(--typewriterSpeedFour)
       steps(var(--typewriterCharactersFour)) 0.5s forwards;
 }
 
 .type-four::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeedFour)
          steps(var(--typewriterCharactersFour)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharactersFour)) infinite;
@@ -173,14 +173,14 @@
 }
 
 .type-five::before {
-   background: var(--bgcolor);
+   background: var(--bg-color);
    animation: typewriter var(--typewriterSpeedFour)
       steps(var(--typewriterCharactersFive)) 0.5s forwards;
 }
 
 .type-five::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeedFour)
          steps(var(--typewriterCharactersFive)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharactersFive)) infinite;
@@ -207,14 +207,14 @@
 }
 
 .type-six::before {
-   background: var(--bgcolor);
+   background: var(--bg-color);
    animation: typewriter var(--typewriterSpeedFour)
       steps(var(--typewriterCharactersSix)) 0.5s forwards;
 }
 
 .type-six::after {
    width: 0.125em;
-   background: var(--blinkColor);
+   background: var(--text-color);
    animation: typewriter var(--typewriterSpeedFour)
          steps(var(--typewriterCharactersSix)) 0.5s forwards,
       blink 750ms steps(var(--typewriterCharactersSix)) infinite;
@@ -318,11 +318,11 @@
 
 @media (max-width: 750px) {
    :root {
-      --fgcolor: rgba(255, 255, 255, 0);
-      --bgcolor: rgba(255, 255, 255, 0);
+      --fgcolor: var(--no-color);
+      --bgcolor: var(--no-color);
       --titleColor: var(--dark);
-      --blinkColor: rgba(0, 0, 0, 0);
-      --subtitleColor: rgb(4, 8, 46/ 0.7);
+      --blinkColor: var(--no-color);
+      --subtitleColor: var(--dark);
       --typewriterSpeed: 0s;
       --typewriterSpeedTwo: 0s;
       --typewriterSpeedThree: 0s;
@@ -357,11 +357,11 @@
       scroll-behavior: auto !important;
    }
    :root {
-      --fgcolor: rgba(255, 255, 255, 0);
-      --bgcolor: rgba(255, 255, 255, 0);
+      --fgcolor: var(--no-color);
+      --bgcolor: var(--no-color);
       --titleColor: var(--dark);
-      --blinkColor: rgba(0, 0, 0, 0);
-      --subtitleColor: rgb(4, 8, 46/ 0.7);
+      --blinkColor: var(--no-color);
+      --subtitleColor: var(--dark);
       --typewriterSpeed: 0s;
       --typewriterSpeedTwo: 0s;
       --typewriterSpeedThree: 0s;

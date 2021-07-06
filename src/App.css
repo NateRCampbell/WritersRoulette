@@ -8,7 +8,10 @@
    --dark: rgb(8, 14, 71);
    --fg-color: rgb(255, 255, 255);
    --bg-color: var(--light);
+   --header-bg: rgb(255, 255, 255);
    --box-shade: rgb(165, 165, 165);
+   --border-line: rgb(209, 209, 209) solid 1px;
+   --no-color: rgba(0, 0, 0, 0);
    --line: radial-gradient(
       circle,
       rgb(161, 217, 228) 0%,
@@ -18,19 +21,56 @@
    --warning: rgb(224, 9, 9);
    --mono-text: "Source Code Pro", monospace;
    --helv-text: Helvetica, Arial, sans-serif;
+   --text-color: rgb(0, 0, 0);
+   --in-text-color: rgb(255, 255, 255);
+
+   --scroll-grade: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+      linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+      radial-gradient(farthest-side at 50% 0, var(--medium1), rgba(0, 0, 0, 0)),
+      radial-gradient(
+            farthest-side at 50% 100%,
+            var(--medium1),
+            rgba(0, 0, 0, 0)
+         )
+         0 100%;
+}
+
+[data-theme="dark"] {
+   --bg-color: rgb(0, 0, 0);
+   --text-color: rgb(255, 255, 255);
+   --fg-color: rgb(29, 29, 29);
+   --header-bg: var(--fg-color);
+   --box-shade: rgb(32, 32, 32);
+   --border-line: rgb(68, 68, 68) solid 1px;
+   --gold-light: rgb(238, 180, 79);
+   --gold-dark: rgb(235, 159, 28);
+   --dark: rgb(206, 231, 235);
+   --light: rgb(8, 14, 71);
+   --warning: rgb(184, 10, 10);
+   --scroll-grade: linear-gradient(#181818 33%, rgba(255, 255, 255, 0)),
+      linear-gradient(rgba(255, 255, 255, 0), #181818 66%) 0 100%,
+      radial-gradient(farthest-side at 50% 0, var(--medium1), rgba(0, 0, 0, 0)),
+      radial-gradient(
+            farthest-side at 50% 100%,
+            var(--medium1),
+            rgba(0, 0, 0, 0)
+         )
+         0 100%;
+
+   --in-text-color: rgb(0, 0, 0);
 }
 
 * {
    padding: 0px;
    margin: 0px;
+   color: var(--text-color);
 }
 
 .App {
    text-align: center;
    background-color: var(--bg-color);
    padding: 0px;
-   padding-top: 60px;
-   padding-bottom: 12px;
+   padding: 60px 0px 12px 0px;
    margin: 0px;
    min-height: 92vh;
    width: 100vw;
@@ -104,9 +144,9 @@ footer {
    padding: 7px;
    border-radius: 5px;
    background-color: var(--turq);
-   box-shadow: 0px 0px 3px var(--light);
+   box-shadow: 0px 0px 3px varvar(--box-shade);
    margin: 3px;
-   color: white;
+   color: var(--in-text-color);
    font-family: var(--mono-text);
    font-size: small;
 }
@@ -115,7 +155,7 @@ footer {
 }
 
 .btn:hover {
-   background-color: var(--light);
+   background-color: var(--medium);
 }
 .delete {
    background-color: var(--warning);
@@ -141,9 +181,9 @@ footer {
    padding: 10px;
    border-radius: 5px;
    background-color: var(--turq);
-   box-shadow: 0px 0px 5px var(--light);
+   box-shadow: 0px 0px 5px var(--box-shade);
    margin: 10px;
-   color: white;
+   color: var(--in-text-color);
    border: 0px;
    font-size: medium;
 }
@@ -158,8 +198,8 @@ footer {
    background-color: var(--medium);
    box-shadow: 0px 0px 5px var(--medium);
    margin: 5px;
-   margin-bottom: px;
-   color: white;
+   /* margin-bottom: px; */
+   color: var(--in-text-color);
    border: 0px;
 }
 .btn3:hover {
@@ -271,16 +311,8 @@ footer {
 }
 
 .scroll {
-   background: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
-      linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
-      radial-gradient(farthest-side at 50% 0, var(--medium1), rgba(0, 0, 0, 0)),
-      radial-gradient(
-            farthest-side at 50% 100%,
-            var(--medium1),
-            rgba(0, 0, 0, 0)
-         )
-         0 100%;
-   background-color: #ffffff;
+   background: var(--scroll-grade);
+   background-color: var(--fg-color);
    background-repeat: no-repeat;
    background-attachment: local, local, scroll, scroll;
    background-size: 100% 27px, 100% 27px, 100% 9px, 100% 9px;
@@ -307,7 +339,7 @@ footer {
    align-items: center;
    align-content: center;
    background-color: var(--fg-color);
-   border: rgb(209, 209, 209) solid 1px;
+   border: var(--border-line);
    box-shadow: 0px 0px 7px var(--box-shade);
    z-index: 1;
 }
@@ -324,7 +356,7 @@ footer {
    border-radius: 5px;
    width: auto;
    text-decoration: none;
-   color: rgb(4, 8, 46);
+   color: var(--dark);
 }
 
 .user-links {
@@ -332,13 +364,13 @@ footer {
 }
 
 .link:hover {
-   background-color: rgb(192, 230, 237);
-   box-shadow: 0px 0px 5px rgb(192, 230, 237);
+   background-color: var(--light);
+   box-shadow: 0px 0px 5px var(--box-shade);
 }
 .login-link {
    text-decoration: none;
-   color: rgb(68, 118, 149);
-   background-color: rgb(255, 220, 160);
+   color: var(--medium);
+   background-color: var(--gold-light);
    height: 20px;
    margin: 3px;
    padding: 7px;
@@ -350,8 +382,8 @@ footer {
 
 .new-button {
    text-decoration: none;
-   background-color: rgb(255, 220, 160);
-   color: rgb(68, 118, 149);
+   background-color: var(--gold-light);
+   color: var(--medium);
    width: 50px;
    height: 20px;
    margin: 2px;
@@ -363,16 +395,16 @@ footer {
 }
 
 .login-link:hover {
-   background-color: rgb(243, 202, 132);
+   background-color: var(--gold-dark);
 }
 .new-button:hover {
-   background-color: rgb(243, 202, 132);
+   background-color: var(--gold-dark);
 }
 
 .menu-button {
    display: none;
-   background-color: rgb(255, 220, 160);
-   color: rgb(53, 157, 147);
+   background-color: var(--gold-light);
+   color: var(--turq);
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: flex-end;
@@ -384,7 +416,7 @@ footer {
    padding-left: 15px;
    height: 30px;
    border-radius: 5px;
-   box-shadow: 0px 0px 3px lightgray;
+   box-shadow: 0px 0px 3px var(--box-shade);
    border: 0px;
 }
 
@@ -396,7 +428,7 @@ footer {
 }
 
 .menu-button:hover {
-   background-color: rgb(243, 202, 132);
+   background-color: var(--gold-light);
 }
 .burger {
    margin: 5px;
@@ -405,12 +437,12 @@ footer {
 .patty {
    height: 2px;
    width: 15px;
-   background-color: rgb(68, 118, 149);
+   background-color: var(--medium);
    margin: 3px;
 }
 
 .menu {
-   color: rgb(68, 118, 149);
+   color: var(--medium);
 }
 
 /* Authentication */
@@ -418,21 +450,21 @@ footer {
 .register {
    padding: 10px;
    width: 110px;
-   background-color: rgb(255, 220, 160);
+   background-color: var(--gold-light);
    border-radius: 5px;
-   color: rgb(68, 118, 149);
-   border: rgb(53, 157, 147);
+   color: var(--medium);
+   border: var(--turq);
    box-shadow: 0px 0px 5px var(--box-shade);
 }
 
 .register:hover {
-   background-color: rgb(243, 202, 132);
+   background-color: var(--gold-dark);
 }
 
 .auth-box {
    width: 600px;
-   background-color: rgb(255, 255, 255);
-   color: rgb(53, 157, 147);
+   background-color: var(--fg-color);
+   color: var(--turq);
    padding: 10px;
    border-radius: 10px;
    box-shadow: 0px 0px 10px var(--box-shade);
@@ -457,16 +489,16 @@ footer {
    margin: 5px;
    padding: 7px;
    border-radius: 5px;
-   border: rgb(158, 158, 158) solid 1px;
-   box-shadow: 0px 1px 5px lightgray;
+   border: var(--border-line);
+   box-shadow: 0px 1px 5px var(--box-shade);
 }
 
 .auth-button:hover {
-   background-color: lightgray;
+   background-color: var(--medium1);
 }
 
 .color-light-blue {
-   color: rgb(192, 230, 237);
+   color: var(--light);
 }
 
 .user-title {
@@ -483,7 +515,7 @@ footer {
    font-family: "Source Code Pro", monospace;
 }
 .turq-title {
-   color: rgb(53, 157, 147);
+   color: var(--turq);
    padding-bottom: 5px;
    margin: 5px;
 }

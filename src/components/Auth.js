@@ -15,7 +15,7 @@ const Auth = (props) => {
    const [password, setPassword] = useState("");
    const [username, setUsername] = useState("");
    const { handleLogin, handleRegister } = useContext(UserContext);
-   const [showReg, setShowReg] = useState(true);
+   const [showReg, setShowReg] = useState(false);
 
    return (
       <div className="center">
@@ -28,70 +28,86 @@ const Auth = (props) => {
          >
             Login & Register.
          </h1>
-         <div className="auth-box">
-            <div>
-               <h3 className="turq-title">Login</h3>
-            </div>
-
-            <div className="auth-inner">
-               <input
-                  className="auth-inputs"
-                  value={email}
-                  placeholder="email"
-                  onChange={(e) => setEmail(e.target.value)}
-               />
-               <input
-                  className="auth-inputs"
-                  value={password}
-                  placeholder="password"
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-               />
-               <button
-                  className="auth-button"
-                  onClick={() => handleLogin(email, password)}
-               >
-                  Login
-               </button>
-            </div>
-         </div>
-         <div style={center}>
-            <button className="register" onClick={() => setShowReg(!showReg)}>
-               Register Now
-            </button>
-         </div>
          {showReg ? (
-            <div></div>
-         ) : (
-            <div className="auth-box">
-               <div>
-                  <h3 className="turq-title">Register</h3>
+            <div>
+               <div className="auth-box">
+                  <div>
+                     <h3 className="turq-title">Register</h3>
+                  </div>
+                  <div className="auth-inner">
+                     <input
+                        className="auth-inputs"
+                        value={email}
+                        placeholder="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                     />
+                     <input
+                        className="auth-inputs"
+                        value={username}
+                        placeholder="username"
+                        onChange={(e) => setUsername(e.target.value)}
+                     />
+                     <input
+                        className="auth-inputs"
+                        value={password}
+                        placeholder="password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                     />
+                     <button
+                        className="auth-button"
+                        onClick={() =>
+                           handleRegister(username, email, password)
+                        }
+                     >
+                        Register
+                     </button>
+                  </div>
                </div>
-               <div className="auth-inner">
-                  <input
-                     className="auth-inputs"
-                     value={email}
-                     placeholder="email"
-                     onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <input
-                     className="auth-inputs"
-                     value={username}
-                     placeholder="username"
-                     onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <input
-                     className="auth-inputs"
-                     value={password}
-                     placeholder="password"
-                     type="password"
-                     onChange={(e) => setPassword(e.target.value)}
-                  />
+               <div style={center}>
                   <button
-                     className="auth-button"
-                     onClick={() => handleRegister(username, email, password)}
+                     className="register"
+                     onClick={() => setShowReg(!showReg)}
                   >
-                     Register
+                     Back to Login
+                  </button>
+               </div>
+            </div>
+         ) : (
+            <div>
+               <div className="auth-box">
+                  <div>
+                     <h3 className="turq-title">Login</h3>
+                  </div>
+
+                  <div className="auth-inner">
+                     <input
+                        className="auth-inputs"
+                        value={email}
+                        placeholder="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                     />
+                     <input
+                        className="auth-inputs"
+                        value={password}
+                        placeholder="password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                     />
+                     <button
+                        className="auth-button"
+                        onClick={() => handleLogin(email, password)}
+                     >
+                        Login
+                     </button>
+                  </div>
+               </div>
+               <div style={center}>
+                  <button
+                     className="register"
+                     onClick={() => setShowReg(!showReg)}
+                  >
+                     Register Now
                   </button>
                </div>
             </div>

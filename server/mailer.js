@@ -25,7 +25,7 @@ exports.sendConfirmationEmail = (user) => {
       // to: GOOGLE_USER,
       subject: "Writers Roulette Verification",
       html: `
-         <h3> Hello there, Nate</h3>
+         <h3> Hello there, ${user.username}</h3>
          <p> Thank you for joining in on this adventurous writing project! 
          We're almost there, only one last thing to do. </p>
          <h5.> Verify your account by clickling on this link:

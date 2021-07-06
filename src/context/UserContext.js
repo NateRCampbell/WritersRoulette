@@ -7,6 +7,9 @@ export const UserContext = createContext();
 export const UserProvider = (props) => {
    const history = useHistory();
    const [user, setUser] = useState(null);
+   const [darkMode, setDarkMode] = useState(false);
+
+   const toggleDarkMode = () => setDarkMode(darkMode ? false : true);
 
    useEffect(() => {
       axios
@@ -64,6 +67,9 @@ export const UserProvider = (props) => {
             handleLogin,
             handleRegister,
             handleLogout,
+            darkMode,
+            setDarkMode,
+            toggleDarkMode,
          }}
       >
          {props.children}

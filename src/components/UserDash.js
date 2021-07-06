@@ -9,6 +9,8 @@ const UserDash = () => {
    const { handleLogout } = useContext(UserContext);
    const { user } = useContext(UserContext);
    const [roulettes, setRoulettes] = useState([]);
+   const { toggleDarkMode } = useContext(UserContext);
+   const { darkMode } = useContext(UserContext);
 
    useEffect(() => {
       if (user) {
@@ -58,6 +60,11 @@ const UserDash = () => {
                         <button onClick={() => handleLogout()} className="btn2">
                            Logout
                         </button>
+                        <button className="btn2" onClick={toggleDarkMode}>
+                           {darkMode
+                              ? "Switch to Light Mode"
+                              : "Switch to Dark Mode"}
+                        </button>
                      </div>
                   )}
                </div>
@@ -74,7 +81,7 @@ const UserDash = () => {
                      <RouletteItem
                         roulette={roulette}
                         editRoulette={editRoulette}
-                        deleteRoulette={deleteRoulette}
+                        // deleteRoulette={deleteRoulette}
                      />
                   );
                })}
