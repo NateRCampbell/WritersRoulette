@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 const ReadRoulette = () => {
    const { roulette_id } = useParams();
    const [pageList, setPageList] = useState([]);
+
    const isList = pageList.length > 0;
    console.log(roulette_id);
 
@@ -40,7 +41,7 @@ const ReadRoulette = () => {
                         </div>
                         <div
                            style={{ whiteSpace: "pre-line" }}
-                           className="margin page"
+                           className={`margin page`}
                         >
                            {page.submit_body}
                            <div className="line" />

@@ -6,8 +6,10 @@ export const UserContext = createContext();
 
 export const UserProvider = (props) => {
    const history = useHistory();
+   const storedDarkMode = localStorage.getItem("DARK_MODE");
    const [user, setUser] = useState(null);
-   const [darkMode, setDarkMode] = useState(false);
+   const [darkMode, setDarkMode] = useState(storedDarkMode);
+   const [fontStyle, setFontStyle] = useState("helvetica-font");
 
    const toggleDarkMode = () => setDarkMode(darkMode ? false : true);
 
@@ -70,6 +72,8 @@ export const UserProvider = (props) => {
             darkMode,
             setDarkMode,
             toggleDarkMode,
+            fontStyle,
+            setFontStyle,
          }}
       >
          {props.children}

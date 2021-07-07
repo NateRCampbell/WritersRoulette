@@ -55,7 +55,7 @@ const Auth = (props) => {
                         onChange={(e) => setPassword(e.target.value)}
                      />
                      <button
-                        className="auth-button"
+                        className="auth-button btn"
                         onClick={() =>
                            handleRegister(username, email, password)
                         }
@@ -95,7 +95,7 @@ const Auth = (props) => {
                         onChange={(e) => setPassword(e.target.value)}
                      />
                      <button
-                        className="auth-button"
+                        className="auth-button btn"
                         onClick={() => handleLogin(email, password)}
                      >
                         Login

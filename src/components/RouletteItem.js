@@ -82,12 +82,6 @@ const RouletteItem = (props) => {
                         >
                            edit
                         </button>
-                        <button
-                           className="btn delete"
-                           onClick={() => deleteRoulette(roulette.roulette_id)}
-                        >
-                           delete
-                        </button>
                      </div>
                   </div>
                </div>

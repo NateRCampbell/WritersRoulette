@@ -5,13 +5,20 @@ import "./App.css";
 import routes from "./routes";
 import Header from "./components/Header";
 import { UserContext } from "./context/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 function App() {
-   const { darkMode } = useContext(UserContext);
+   const { darkMode, fontStyle } = useContext(UserContext);
+
+   useEffect(() => {
+      localStorage.setItem("DARK_MODE", darkMode);
+   }, [darkMode]);
 
    return (
-      <div className="App" data-theme={darkMode ? "dark" : "light"}>
+      <div
+         className={`App ${fontStyle}`}
+         data-theme={darkMode ? `dark` : `light`}
+      >
          <header className="App-header">
             <Header />
             {routes}

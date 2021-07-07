@@ -1,3 +1,10 @@
+@font-face {
+   font-family: "opendyslexic";
+   src: url("http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf");
+   font-style: normal;
+   font-weight: normal;
+}
+
 :root {
    --turq: rgb(86, 190, 180);
    --gold-light: rgb(255, 220, 160);
@@ -21,8 +28,13 @@
    --warning: rgb(224, 9, 9);
    --mono-text: "Source Code Pro", monospace;
    --helv-text: Helvetica, Arial, sans-serif;
+   --dys-text: "OpenDyslexic3Regular";
+   --comic-text: "Comic Sans MS", "Comic Sans", cursive;
+   --times-text: "Times New Roman", Times, serif;
    --text-color: rgb(0, 0, 0);
    --in-text-color: rgb(255, 255, 255);
+   --alpha: hsla(0, 0%, 50%, 0.2);
+   --alpha1: hsla(0, 0%, 50%, 0.5);
 
    --scroll-grade: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
       linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
@@ -64,6 +76,26 @@
    padding: 0px;
    margin: 0px;
    color: var(--text-color);
+}
+
+.helvetica * {
+   font-family: var(--helv-text);
+}
+
+.comic-sans * {
+   font-family: var(--comic-text);
+}
+
+.dyslexic * {
+   font-family: var(--dys-text);
+}
+
+.monospace * {
+   font-family: var(--mono-text);
+}
+
+.times-new * {
+   font-family: var(--times-text);
 }
 
 .App {
@@ -120,6 +152,7 @@ footer {
    border: var(--turq);
    box-shadow: 0px 0px 5px var(--box-shade);
    margin: 10px;
+   font-family: var(--helv-text);
 }
 
 .button:hover {
@@ -134,6 +167,7 @@ footer {
    border: var(--turq);
    box-shadow: 0px 0px 3px var(--box-shade);
    margin: 10px;
+   font-family: var(--helv-text);
 }
 
 .sm-button:hover {
@@ -142,6 +176,7 @@ footer {
 .btn {
    text-decoration: none;
    padding: 7px;
+   border: none;
    border-radius: 5px;
    background-color: var(--turq);
    box-shadow: 0px 0px 3px varvar(--box-shade);
@@ -186,6 +221,7 @@ footer {
    color: var(--in-text-color);
    border: 0px;
    font-size: medium;
+   font-family: var(--mono-text);
 }
 .btn2:hover {
    background-color: var(--medium);
@@ -201,7 +237,9 @@ footer {
    /* margin-bottom: px; */
    color: var(--in-text-color);
    border: 0px;
+   font-family: var(--mono-text);
 }
+
 .btn3:hover {
    background-color: var(--dark);
 }
@@ -324,7 +362,7 @@ footer {
    margin-left: 20px;
    color: var(--medium);
    font-size: xx-large;
-   font-family: "Source Code Pro", monospace;
+   font-family: var(--mono-text);
 }
 
 .navbar {
@@ -357,6 +395,7 @@ footer {
    width: auto;
    text-decoration: none;
    color: var(--dark);
+   font-family: var(--helv-text);
 }
 
 .user-links {
@@ -378,6 +417,7 @@ footer {
    padding-right: 12px;
    border-radius: 5px;
    box-shadow: 0px 0px 3px var(--box-shade);
+   font-family: var(--helv-text);
 }
 
 .new-button {
@@ -392,6 +432,7 @@ footer {
    padding-right: 12px;
    border-radius: 5px;
    box-shadow: 0px 0px 3px var(--box-shade);
+   font-family: var(--helv-text);
 }
 
 .login-link:hover {
@@ -418,6 +459,7 @@ footer {
    border-radius: 5px;
    box-shadow: 0px 0px 3px var(--box-shade);
    border: 0px;
+   font-family: var(--helv-text);
 }
 
 .btn-link {
@@ -455,6 +497,7 @@ footer {
    color: var(--medium);
    border: var(--turq);
    box-shadow: 0px 0px 5px var(--box-shade);
+   font-family: var(--helv-text);
 }
 
 .register:hover {
@@ -483,6 +526,38 @@ footer {
 
 .auth-inputs {
    margin: 5px;
+   background-color: var(--fg-color);
+   border: none;
+   border-bottom: 2px solid var(--medium);
+   height: 25px;
+   transition: 0.5s all ease-in-out;
+   font-family: var(--helv-text);
+}
+.auth-inputs:hover {
+   height: 25px;
+   border-bottom: 2px solid var(--turq);
+}
+
+.inputs {
+   margin: 5px;
+   background-color: var(--fg-color);
+   border: none;
+   border-bottom: 2px solid var(--medium);
+   height: 25px;
+   transition: 0.5s all ease-in-out;
+   font-family: var(--helv-text);
+}
+.inputs:hover {
+   height: 25px;
+   border-bottom: 2px solid var(--turq);
+}
+
+.base-text {
+   font-family: var(--helv-text);
+}
+
+.mono-text {
+   font-family: var(--mono-text);
 }
 
 .auth-button {
@@ -518,6 +593,7 @@ footer {
    color: var(--turq);
    padding-bottom: 5px;
    margin: 5px;
+   font-family: var(--helv-text);
 }
 
 .sub {
@@ -529,6 +605,79 @@ footer {
    text-decoration: none;
    color: var(--medium);
 }
+.fade {
+   position: fixed;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: var(--alpha);
+}
+
+.caution {
+   position: absolute;
+   max-width: 500px;
+
+   background-color: var(--fg-color);
+   border: 2px solid var(--medium);
+   border-radius: 10px;
+   box-shadow: 0px 1px 10px var(--box-shade);
+   padding: 10px;
+}
+
+.warning-text {
+   color: var(--warning);
+   font-family: var(--mono-text);
+}
+
+h4 {
+   text-decoration: none;
+   font-family: var(--body-text);
+   font-style: normal;
+   margin: 5px;
+}
+
+.font-box {
+   background-color: var(--fg-color);
+}
+
+h2 {
+   margin: 10px;
+   font-family: var(--mono-text);
+}
+
+.inline {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+}
+
+.left-align {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: baseline;
+}
+
+.checkbox {
+   margin: 5px;
+}
+
+.example {
+   color: var(--alpha1);
+}
 
 @media (max-width: 1000px) {
    .nav-title {
@@ -539,7 +688,7 @@ footer {
       margin-right: 20px;
    }
 }
-@media (max-width: 785px) {
+@media (max-width: 750px) {
    .nav-links {
       display: none;
    }
