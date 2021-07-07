@@ -224,7 +224,7 @@
 
 .subtitle {
    margin: 20px;
-   color: var(--subtitleColor);
+   color: var(--text-color);
    font-size: 1.25rem;
    font-weight: 400;
    opacity: 0;
@@ -234,7 +234,7 @@
 }
 .subtitle-two {
    margin: 20px;
-   color: var(--subtitleColor);
+   color: var(--text-color);
    font-size: 1rem;
    font-weight: 400;
    opacity: 0;
@@ -244,7 +244,7 @@
 
 .subtitle-three {
    margin: 20px;
-   color: var(--subtitleColor);
+   color: var(--text-color);
    font-size: 1rem;
    font-weight: 400;
    opacity: 0;
@@ -318,11 +318,6 @@
 
 @media (max-width: 750px) {
    :root {
-      --fgcolor: var(--no-color);
-      --bgcolor: var(--no-color);
-      --titleColor: var(--dark);
-      --blinkColor: var(--no-color);
-      --subtitleColor: var(--dark);
       --typewriterSpeed: 0s;
       --typewriterSpeedTwo: 0s;
       --typewriterSpeedThree: 0s;
@@ -335,10 +330,53 @@
       --typewriterCharactersSix: 0;
    }
 
+   .type::before {
+      background: var(--no-color);
+   }
+   .type::after {
+      background-color: var(--no-color);
+   }
+
+   .type-two::before {
+      background: var(--no-color);
+   }
+   .type-two::after {
+      background-color: var(--no-color);
+   }
+
+   .type-three::before {
+      background: var(--no-color);
+   }
+   .type-three::after {
+      background-color: var(--no-color);
+   }
+
+   .type-four::before {
+      background: var(--no-color);
+   }
+   .type-four::after {
+      background-color: var(--no-color);
+   }
+
+   .type-five::before {
+      background: var(--no-color);
+   }
+   .type-five::after {
+      background-color: var(--no-color);
+   }
+
+   .type-six::before {
+      background: var(--no-color);
+   }
+   .type-six::after {
+      background-color: var(--no-color);
+   }
+
    .type {
       font-size: 1.5rem;
       width: 100%;
    }
+
    .type-two {
       font-size: 1.5rem;
       width: 100%;
@@ -361,7 +399,7 @@
       --bgcolor: var(--no-color);
       --titleColor: var(--dark);
       --blinkColor: var(--no-color);
-      --subtitleColor: var(--dark);
+      --subtitleColor: var(--subtitleColor);
       --typewriterSpeed: 0s;
       --typewriterSpeedTwo: 0s;
       --typewriterSpeedThree: 0s;

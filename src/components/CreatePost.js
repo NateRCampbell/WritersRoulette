@@ -58,11 +58,13 @@ const CreatePost = () => {
          <h1 className="type-two center"> Create Roulette.</h1>
          <div>
             <div style={title}>
-               <h3 style={spaceing}>Writing Prompt:</h3>
+               <h3 className="base-text" style={spaceing}>
+                  Writing Prompt:
+               </h3>
                <div>
                   <textarea
                      type="text"
-                     className="text-area scroll"
+                     className="text-area scroll base-text"
                      rows="3"
                      cols="75"
                      required
@@ -71,19 +73,87 @@ const CreatePost = () => {
                      value={promptBody}
                      onChange={(e) => setPromptBody(e.target.value)}
                   />
-                  <p>Character limit: {promptBody.length}/500</p>
+                  <p className="base-text">
+                     Character limit: {promptBody.length}/500
+                  </p>
                </div>
             </div>
             <a
+               className="base-text"
                style={link}
                href="https://www.reddit.com/r/WritingPrompts/"
                target="_blank"
             >
-               Need some inspiration for your prompt?
+               Need some inspiration for your prompt? Click me!
             </a>
          </div>
+         <div className="line"></div>
+         <div style={{ margin: "10px" }}>
+            <h2 className="mono-text">Roulette Settings</h2>
+            <div>
+               <div className="inline">
+                  <label className="base-text inline" for="mature">
+                     <p className="warning">*</p>
+                     Mature Rating?:
+                  </label>
+                  <select
+                     className="inputs base-text"
+                     name="mature"
+                     required
+                     value={mature}
+                     onChange={(e) => setMature(e.target.value)}
+                  >
+                     <option className="base-text" value="">
+                        Please select
+                     </option>
+                     <option className="base-text" value="False">
+                        Clean (PG-PG13)
+                     </option>
+                     <option className="base-text" value="TRUE">
+                        Mature (R)
+                     </option>
+                  </select>
+               </div>
+               <div className="inline">
+                  <div>
+                     <label className="base-text" for="more-rules">
+                        More Rules:
+                     </label>
+                  </div>
+                  <div className="left-align">
+                     <div className="inline">
+                        <input
+                           type="checkbox"
+                           id="not-a-rule"
+                           name="base-text"
+                           value="not-a-rule"
+                           className="checkbox"
+                        ></input>
+                        <label for="not-a-rule" className="base-text">
+                           More rules to come
+                        </label>
+                     </div>
+                     <div className="inline">
+                        <input
+                           type="checkbox"
+                           id="not-a-rule"
+                           name="base-text"
+                           value="not-a-rule"
+                           className="checkbox"
+                        ></input>
+                        <label for="not-a-rule" className="base-text">
+                           This does nothing
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div className="line" />
          <div>
-            <h3 style={page}>First Page</h3>
+            <h3 className="base-text" style={page}>
+               First Page
+            </h3>
             <textarea
                style={spaceing}
                className="text-area scroll"
@@ -96,22 +166,22 @@ const CreatePost = () => {
                value={submitBody}
                onChange={(e) => setSubmitBody(e.target.value)}
             />
-            <p>
+            <p className="base-text">
                Character limit:
                <div>
                   {submitBody.length < 1500 ? (
-                     <div style={{ color: "orange" }}>
+                     <div className="base-text" style={{ color: "orange" }}>
                         write at least 1500 characters / {submitBody.length}
                      </div>
                   ) : submitBody.length > 2900 ? (
-                     <div style={{ color: "orange" }}>
+                     <div className="base-text" style={{ color: "orange" }}>
                         {submitBody.length}/3000
                         <p className="warning">
                            Caution: Aproaching Character Limit
                         </p>
                      </div>
                   ) : (
-                     <div style={{ color: "green" }}>
+                     <div className="base-text" style={{ color: "green" }}>
                         {submitBody.length}/3000
                      </div>
                   )}
@@ -119,17 +189,6 @@ const CreatePost = () => {
             </p>
          </div>
          <div>
-            <label for="mature">*Mature Rating?:</label>
-            <select
-               name="mature"
-               required
-               value={mature}
-               onChange={(e) => setMature(e.target.value)}
-            >
-               <option value="">Please select</option>
-               <option value="False">Clean (PG-PG13)</option>
-               <option value="TRUE">Mature (R)</option>
-            </select>
             <button className="button" style={spaceing} onClick={handleCreate}>
                Post
             </button>
