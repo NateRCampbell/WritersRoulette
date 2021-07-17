@@ -65,13 +65,13 @@ const Prompts = () => {
                                        className="btn"
                                        onClick={() => setReadWarning(false)}
                                     >
-                                       read
+                                       read all pages
                                     </button>
                                     <Link
                                        to={`/new_submit/${roulette.roulette_id}`}
                                        className="btn"
                                     >
-                                       write
+                                       write a page
                                     </Link>
                                     {readWarning ? (
                                        ""

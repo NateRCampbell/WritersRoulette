@@ -68,8 +68,8 @@ module.exports = {
    },
    submitPage: (req, res) => {
       const db = req.app.get("db");
-      const { author_id } = req.session.user;
-      const { roulette_id, submit_body, submit_page } = req.body;
+      // const { author_id } = req.session.user;
+      const { roulette_id, submit_body, submit_page, author_id } = req.body;
       db.roulette
          .submit_new_page(roulette_id, author_id, submit_body, submit_page)
          .then(() => res.sendStatus(200))

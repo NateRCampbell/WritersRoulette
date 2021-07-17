@@ -5,6 +5,7 @@ const RouletteItem = (props) => {
    const { roulette, editRoulette, deleteRoulette } = props;
    const [editMode, setEditMode] = useState(false);
    const [editedPrompt, setEditedPrompt] = useState(roulette.prompt_body);
+   const [readWarning, setReadWarning] = useState(true);
 
    return (
       <div className="basic prompt">
@@ -64,12 +65,12 @@ const RouletteItem = (props) => {
                         </div>
                      </div>
                      <div className="btn-div">
-                        <Link
-                           to={`/read_roulette/${roulette.roulette_id}`}
-                           className="btn f"
+                        <button
+                           className="btn"
+                           onClick={() => setReadWarning(false)}
                         >
-                           read
-                        </Link>
+                           read all pages
+                        </button>
                         <Link
                            to={`/new_submit/${roulette.roulette_id}`}
                            className="btn f"
@@ -82,6 +83,33 @@ const RouletteItem = (props) => {
                         >
                            edit
                         </button>
+                        {readWarning ? (
+                           ""
+                        ) : (
+                           <div className="fade">
+                              <div className="caution center">
+                                 <h1 className="warning-text">Caution!</h1>
+                                 <h4 className="base-text">
+                                    By reading this Roulette, you are forfeiting
+                                    your chance to write pages for it. Are you
+                                    sure you would like to continue?
+                                 </h4>
+                                 <Link
+                                    to={`/read_roulette/${roulette.roulette_id}`}
+                                    className="btn delete"
+                                 >
+                                    Continue
+                                 </Link>
+
+                                 <button
+                                    className="btn"
+                                    onClick={() => setReadWarning(true)}
+                                 >
+                                    Return
+                                 </button>
+                              </div>
+                           </div>
+                        )}
                      </div>
                   </div>
                </div>

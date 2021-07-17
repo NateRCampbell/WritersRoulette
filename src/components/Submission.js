@@ -14,6 +14,8 @@ const Submission = () => {
    const [prompt, setPrompt] = useState([]);
    const submit_page = preNum + 1;
    const submit_body = submitBody;
+   const author_id = user.author_id;
+   console.log(author_id);
 
    useEffect(() => {
       axios
@@ -34,6 +36,7 @@ const Submission = () => {
             roulette_id,
             submit_body,
             submit_page,
+            author_id,
          })
          .then((res) => {
             history.push("/user_dash");
