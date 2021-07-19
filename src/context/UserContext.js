@@ -13,18 +13,18 @@ export const UserProvider = (props) => {
 
    const toggleDarkMode = () => setDarkMode(darkMode ? false : true);
 
-   useEffect(() => {
-      axios
-         .get("auth/get_user")
-         .then((res) => {
-            setUser(res.data);
-            history.push("/user_dash");
-         })
-         .catch((err) => {
-            console.log(err);
-            history.push("/auth");
-         });
-   }, []);
+   // useEffect(() => {
+   //    axios
+   //       .get("auth/get_user")
+   //       .then((res) => {
+   //          setUser(res.data);
+   //          history.push("/user_dash");
+   //       })
+   //       .catch((err) => {
+   //          console.log(err);
+   //          history.push("/auth");
+   //       });
+   // }, []);
 
    const handleLogin = (email, password) => {
       axios
